@@ -44,7 +44,7 @@ function getdata(){
 						# code...
 						$id = $rows['id'];
 						$name = $rows['name'];
-						$location = $rows['address'];
+						$address = $rows['address'];
 					}
 				}else{
 					echo "no data are available";
@@ -129,6 +129,8 @@ function getdata(){
 	<input type="number" name="id" placeholder="id" value="<?php echo ($id);?>"><br><br>
 	<input type="text" name="name" placeholder="Name" value="<?php echo ($name);?>"><br><br>
 	<input type="text" name="address" placeholder="address" value="<?php echo ($address);?>"><br><br>
+	
+	
 	
 	<div>
 		<input type="submit" name="insert" value="Add">
