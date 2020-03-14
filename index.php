@@ -1,10 +1,10 @@
 
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "idusnew";
+$servername = "cindyjaisever.mysql.database.azure.com";
+$username = "cinjai@cindyjaisever";
+$password = "Cindyjai1";
+$dbname = "info";
 
 $Rollno='';
 $fname="";
