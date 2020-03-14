@@ -6,11 +6,10 @@ $username = "cinjai@cindyjaisever";
 $password = "Cindyjai1";
 $dbname = "info";
 
-$Rollno='';
-$fname="";
-$lname="";
-$address="";
-$email="";
+$id='';
+$name="";
+$location="";
+
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 //connect to mysql database
@@ -126,14 +125,14 @@ function getdata(){
 <html>
 <body>
 
-<form method="post" action="idusnew.php">
+<form method="post" action="index.php">
 	<input type="number" name="id" placeholder="ID" value="<?php echo ($id);?>"><br><br>
 	<input type="text" name="name" placeholder="Name" value="<?php echo ($name);?>"><br><br>
 	<input type="text" name="location" placeholder="LOCATION" value="<?php echo ($location);?>"><br><br>
 	
 	<div>
 		<input type="submit" name="insert" value="Add">
-		<input type="submit" name="update"	value="Update">
+		<input type="submit" name="update" value="Update">
 		<input type="submit" name="delete" value="Delete">
 		<input type="submit" name="search" value="Find">
 		
