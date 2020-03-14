@@ -8,7 +8,7 @@ $dbname = "info";
 
 $id='';
 $name="";
-$location="";
+$address="";
 
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -26,7 +26,7 @@ function getdata(){
 	$data=array();
 	$data[0]=$_POST['id'];
 	$data[1]=$_POST['name'];
-	$data[2]=$_POST['location'];
+	$data[2]=$_POST['address'];
 	return $data;
 }
 //search
@@ -44,7 +44,7 @@ function getdata(){
 						# code...
 						$id = $rows['id'];
 						$name = $rows['name'];
-						$location = $rows['location'];
+						$location = $rows['address'];
 					}
 				}else{
 					echo "no data are available";
@@ -59,7 +59,7 @@ function getdata(){
 	if (isset($_POST['insert'])) {
 		# code...
 		$info = getData();
-		$insert_query="INSERT INTO `information`( `name`, `location`) VALUES ('$info[1]','$info[2]')";
+		$insert_query="INSERT INTO `information`( `name`, `address`) VALUES ('$info[1]','$info[2]')";
 			try{
 				$insert_result=mysqli_query($conn,$insert_query);
 				if ($insert_query) {
@@ -101,7 +101,7 @@ function getdata(){
 	if (isset($_POST['update'])) {
 		# code...
 		$info = getdata(); 
-		$update_query= "UPDATE `information` SET `name`='$info[1]',`location`='$info[2]' WHERE id ='$info[0]'";
+		$update_query= "UPDATE `information` SET `name`='$info[1]',`address`='$info[2]' WHERE id ='$info[0]'";
 		try{
 			$update_result = mysqli_query($conn,$update_query);
 			if ($update_result) {
@@ -128,7 +128,7 @@ function getdata(){
 <form method="post" action="index.php">
 	<input type="number" name="id" placeholder="id" value="<?php echo ($id);?>"><br><br>
 	<input type="text" name="name" placeholder="Name" value="<?php echo ($name);?>"><br><br>
-	<input type="text" name="location" placeholder="LOCATION" value="<?php echo ($location);?>"><br><br>
+	<input type="text" name="address" placeholder="address" value="<?php echo ($address);?>"><br><br>
 	
 	<div>
 		<input type="submit" name="insert" value="Add">
