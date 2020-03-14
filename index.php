@@ -34,7 +34,7 @@ function getdata(){
 	if (isset($_POST['search'])) {
 		# code...
 		$info = getData();
-		$search_query="SELECT * FROM `information` WHERE if = '$info[0]'";
+		$search_query="SELECT * FROM `information` WHERE id = '$info[0]'";
 		$search_result=mysqli_query($conn,$search_query);
 			if ($search_result) {
 				# code...
