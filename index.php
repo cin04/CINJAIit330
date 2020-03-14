@@ -25,12 +25,9 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 function getdata(){
 
 	$data=array();
-	$data[0]=$_POST['Rollno'];
-	$data[1]=$_POST['fname'];
-	$data[2]=$_POST['lname'];
-	$data[3]=$_POST['address'];
-	$data[4]=$_POST['email'];
-
+	$data[0]=$_POST['id'];
+	$data[1]=$_POST['name'];
+	$data[2]=$_POST['location'];
 	return $data;
 }
 //search
@@ -38,7 +35,7 @@ function getdata(){
 	if (isset($_POST['search'])) {
 		# code...
 		$info = getData();
-		$search_query="SELECT * FROM `idusnew` WHERE Rollno = '$info[0]'";
+		$search_query="SELECT * FROM `information` WHERE if = '$info[0]'";
 		$search_result=mysqli_query($conn,$search_query);
 			if ($search_result) {
 				# code...
@@ -46,12 +43,9 @@ function getdata(){
 					# code...
 					while ($rows = mysqli_fetch_array($search_result)) {
 						# code...
-						$Rollno = $rows['Rollno'];
-						$fname = $rows['fname'];
-						$lname = $rows['lname'];
-						$address = $rows['address'];
-						$email = $rows['email'];
-						
+						$id = $rows['id'];
+						$name = $rows['name'];
+						$location = $rows['location'];
 					}
 				}else{
 					echo "no data are available";
@@ -66,7 +60,7 @@ function getdata(){
 	if (isset($_POST['insert'])) {
 		# code...
 		$info = getData();
-		$insert_query="INSERT INTO `idusnew`( `fname`, `lname`, `address`, `email`) VALUES ('$info[1]','$info[2]','$info[3]','$info[4]')";
+		$insert_query="INSERT INTO `information`( `name`, `location`) VALUES ('$info[1]','$info[2]')";
 			try{
 				$insert_result=mysqli_query($conn,$insert_query);
 				if ($insert_query) {
@@ -87,7 +81,7 @@ function getdata(){
 	if (isset($_POST['delete'])) {
 		# code...
 		$info = getData();
-		$delete_query ="DELETE FROM `idusnew` WHERE Rollno = '$info[0]'";
+		$delete_query ="DELETE FROM `information` WHERE id = '$info[0]'";
 		try{
 			$delete_result = mysqli_query($conn,$delete_query);
 			if ($delete_result) {
@@ -108,7 +102,7 @@ function getdata(){
 	if (isset($_POST['update'])) {
 		# code...
 		$info = getdata(); 
-		$update_query= "UPDATE `idusnew` SET `fname`='$info[1]',`lname`='$info[2]',`address`='$info[3]',`email`='$info[4]' WHERE Rollno ='$info[0]'";
+		$update_query= "UPDATE `information` SET `name`='$info[1]',`location`='$info[2]' WHERE id ='$info[0]'";
 		try{
 			$update_result = mysqli_query($conn,$update_query);
 			if ($update_result) {
@@ -133,12 +127,10 @@ function getdata(){
 <body>
 
 <form method="post" action="idusnew.php">
-	<input type="number" name="Rollno" placeholder="Roll No" value="<?php echo ($Rollno);?>"><br><br>
-	<input type="text" name="fname" placeholder="First Name" value="<?php echo ($fname);?>"><br><br>
-	<input type="text" name="lname" placeholder="Last Name" value="<?php echo ($lname);?>"><br><br>
-	<input type="text" name="address" placeholder="Address" value="<?php echo ($address);?>"><br><br>
-	<input type="text" name="email" placeholder="Email@email.com" value="<?php echo ($email);?>"><br><br>
-
+	<input type="number" name="id" placeholder="ID" value="<?php echo ($id);?>"><br><br>
+	<input type="text" name="name" placeholder="Name" value="<?php echo ($name);?>"><br><br>
+	<input type="text" name="location" placeholder="LOCATION" value="<?php echo ($location);?>"><br><br>
+	
 	<div>
 		<input type="submit" name="insert" value="Add">
 		<input type="submit" name="update"	value="Update">
