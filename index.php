@@ -7,8 +7,8 @@ $password = "Cindyjai1";
 $dbname = "info";
 
 $id='';
-$name="";
-$location="";
+$name='';
+$location='';
 
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
