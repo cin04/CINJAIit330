@@ -128,7 +128,7 @@ function getdata(){
 <form method="post" action="index.php">
 	<input type="number" name="id" placeholder="id" value="<?php echo ($id);?>"><br><br>
 	<input type="text" name="name" placeholder="Name" value="<?php echo ($name);?>"><br><br>
-	<input type="text" name="address" placeholder="address" value="<?php echo ($address);?>"><br><br>
+	<input type="text" name="address" placeholder="Address" value="<?php echo ($address);?>"><br><br>
 	
 	
 	
